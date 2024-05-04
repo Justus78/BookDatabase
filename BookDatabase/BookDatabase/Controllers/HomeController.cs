@@ -10,10 +10,5 @@ namespace BookDatabase.Controllers
             return View();
         } // end index action
 
-        public IActionResult Books()
-        {
-            return View();
-        }
-
     } // end controller
 } // end namespace
