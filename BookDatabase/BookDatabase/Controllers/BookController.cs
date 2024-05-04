@@ -10,7 +10,7 @@ namespace BookDatabase.Controllers
         public BookController(BookContext context) { Context = context; }
         public IActionResult Index()
         {
-            var model = new BookViewModel
+            var model = new BookViewModel(Context)
             {
                 Books = Context.Books.OrderBy(b => b.BookId).ToList(),
                 Authors = Context.Authors.OrderBy(a => a.AuthorId).ToList(),

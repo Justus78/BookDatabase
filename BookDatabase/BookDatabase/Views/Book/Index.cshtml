@@ -2,7 +2,7 @@
 
 <h1>Book Database</h1>
 
-<table>
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Title</th>
@@ -16,9 +16,13 @@
         {
             <tr>
                 <td>@book.Title</td>
-                <td>@book.Authors.ToString()</td>
-                <td>@book.Genre.ToString()</td>
-                <td>@book.Status.ToString()</td>
+                <td>@foreach(var author in book.Authors)
+                    {
+                        <span>@author.AuthorName </span>
+                    }
+                </td>
+                <td>@Model.GetGenre(book.GenreId)</td>
+                <td>@Model.GetStatus(book.StatusId)</td>
             </tr>
         }
     </tbody>
