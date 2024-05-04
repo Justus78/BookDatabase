@@ -35,5 +35,32 @@ namespace BookDatabase.Controllers
             // author Ids can be added to the BookAuthors table.
             return View();
         } // end action AddBook
+
+        public IActionResult AuthorList()
+        {
+            var model = Context.Authors.OrderBy(a => a.AuthorName).ToList();
+            return View(model);
+        } // end action AuthorList
+
+        [HttpGet]
+        public IActionResult AddAuthor()
+        {
+            return View(new Author());
+        } // end action AddAuthor Get
+
+        [HttpPost]
+        public IActionResult AddAuthor(Author author)
+        {
+            if (ModelState.IsValid) 
+            {
+                Context.Add(author);
+                Context.SaveChanges();
+            } else
+            {
+                return View(new Author());
+            }            
+            return RedirectToAction("AuthorList", "Book");
+        } // end action AddAuthor Post
+
     } // end book controller
 } // end namespace

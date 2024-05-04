@@ -1,0 +1,27 @@
+﻿@model Book
+
+<h2>Add a new book below:</h2>
+
+<div class="w-75 mx-auto">
+    <form asp-action="AddCard" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label">Title</label>
+            <input asp-for="Title" class="form-control"/>
+        </div>
+
+        @*
+        need code to handle authors, we will finish this code when 
+        we finish the AddAuthor view
+        *@
+
+        @*need code to handle Genre*@
+
+        @*need code to handle Status*@
+
+
+
+
+    </form>
+</div>

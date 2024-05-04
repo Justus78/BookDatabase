@@ -18,8 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Matt\Desktop\BookDatabase\BookDatabase\BookDatabase
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Matt/Desktop/BookDatabase/BookDatabase/BookDatabase/Views/Book/AddAuthor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xBZGRBdXRob3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Matt/Desktop/BookDatabase/BookDatabase/BookDatabase/Views/Book/AddBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xBZGRCb29rLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Matt/Desktop/BookDatabase/BookDatabase/BookDatabase/Views/Book/AuthorList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xBdXRob3JMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Matt/Desktop/BookDatabase/BookDatabase/BookDatabase/Views/Book/Index.cshtml]
