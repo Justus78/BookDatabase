@@ -1,1 +1,0 @@
-BookDatabase/.vs/BookDatabase/FileContentIndex/0f09da03-d232-4ce2-9340-cd49ff89ed07.vsidx
