@@ -11,6 +11,7 @@
             <th>Author</th>
             <th>Genre</th>
             <th>Status</th>
+            <th>Options</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,12 @@
                 </td>
                 <td>@Model.GetGenre(book.GenreId)</td>
                 <td>@Model.GetStatus(book.StatusId)</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Book" asp-action="EditBook"
+                       asp-route-id="@book.BookId">Edit</a>
+                    <a class="btn btn-primary" asp-controller="Book" asp-action="DeleteBook"
+                       asp-route-id="@book.BookId">Delete</a>
+                </td>
             </tr>
         }
     </tbody>

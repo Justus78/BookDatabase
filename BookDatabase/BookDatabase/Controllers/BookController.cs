@@ -21,6 +21,7 @@ namespace BookDatabase.Controllers
             return View(model);
         } // end action
 
+        //--------------------------- Actions for Books ----------------------------
         [HttpGet]
         public IActionResult AddBook()
         {
@@ -36,6 +37,18 @@ namespace BookDatabase.Controllers
             return View();
         } // end action AddBook
 
+        public IActionResult EditBook()
+        {
+            return View();
+        } // end edit book action
+
+        public IActionResult DeleteBook()
+        {
+            return View();
+        } // end action delete book
+        //----------------------------- End actions for Book ----------------------
+
+        //----------------------------- Actions for Author -----------------------
         public IActionResult AuthorList()
         {
             var model = Context.Authors.OrderBy(a => a.AuthorName).ToList();
@@ -61,6 +74,6 @@ namespace BookDatabase.Controllers
             }            
             return RedirectToAction("AuthorList", "Book");
         } // end action AddAuthor Post
-
+    //------------------------------- End actions for Author---------------------
     } // end book controller
 } // end namespace
