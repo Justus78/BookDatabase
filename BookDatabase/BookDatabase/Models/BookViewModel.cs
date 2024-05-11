@@ -1,30 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookDatabase.Models
 {
     public class BookViewModel
-    {
-        private BookContext Context { get; set; }
-
-        public BookViewModel(BookContext context) {  Context = context; }
-
+    { 
         public Book Book { get; set; } = null!;
+        [ValidateNever]
         public List<Author> Authors { get; set; } = null!;
+        [ValidateNever]
         public List<Book> Books { get; set; } = null!;
+        [ValidateNever]
         public List<BookAuthor> BookAuthors { get; set; } = null!;
+        [ValidateNever]
         public List<Genre> Genres { get; set; } = null!;
+        [ValidateNever]
         public List<Status> Statuses { get; set; } = null!;
 
-        public string GetGenre(int id)
-        {
-            var genre = Context.Genres.Where(g => g.GenreId == id).Select(g => g.Name).FirstOrDefault();
-            return genre ?? "Genre not found.";
-        } // end method
-
-        public string GetStatus(int id)
-        {
-            var status = Context.Statuses.Where(s => s.StatusId == id).Select(s => s.StatusName).FirstOrDefault();
-            return status ?? "Status not found.";
-        } // end method
+        public List<int> SelectedAuthorIds { get; set; } = new List<int>();
+        
     } // end view model
 } // end namespace

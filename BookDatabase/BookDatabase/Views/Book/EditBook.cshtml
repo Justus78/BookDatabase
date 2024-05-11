@@ -1,0 +1,45 @@
+﻿@model BookViewModel
+
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+
+
+<form asp-action="EditBook" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Book.Title" class="form-label">Title</label>
+        <input asp-for="Book.Title" class="form-control" />
+    </div>
+
+    <select class="form-select form-select-sm" aria-label="Small select example" asp-for="Book.Authors">
+        <option selected>--Choose an Author--</option>
+        @foreach(var author in Model.Authors)
+        {
+            <option value="@author.AuthorId">@author.AuthorName</option>
+        }
+    </select>
+
+    <select class="form-select form-select-sm" aria-label="Small select example" asp-for="Book.Genre">
+        <option selected>--Choose a Genre</option>
+        @foreach (var genre in Model.Genres)
+        {
+            <option value="@genre.GenreId">@genre.Name</option>
+        }
+    </select>
+
+    <select class="form-select form-select-sm" aria-label="Small select example" asp-for="Book.Status">
+        <option selected>--Choose a Status--</option>
+        @foreach (var status in Model.Genres)
+        {
+            <option value="@status.GenreId">@status.Name</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-controller="Book" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>
+
+

@@ -19,8 +19,9 @@ namespace BookDatabase.Models
         public Genre Genre { get; set; } = null!;
 
         //Set the one to many relationship with Status
-        [Required(ErrorMessage = "Please select a Staus.")]
+        [Required(ErrorMessage = "Please select a Status.")]
         public int StatusId { get; set; }
+        [ValidateNever]
         public Status Status { get; set; } = null!;
 
 

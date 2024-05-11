@@ -3,6 +3,7 @@
 <h1>Book Database</h1>
 
 <a asp-action="AuthorList" asp-controller="Book" class="btn btn-primary">Authors</a>
+<a asp-action="AddBook" asp-controller="Book" class="btn btn-primary">Add New Book</a>
 
 <table class="table table-bordered table-striped">
     <thead>
@@ -24,8 +25,8 @@
                         <span>@author.AuthorName </span>
                     }
                 </td>
-                <td>@Model.GetGenre(book.GenreId)</td>
-                <td>@Model.GetStatus(book.StatusId)</td>
+                <td>@book.Genre.Name</td>
+                <td>@book.Status.StatusName</td>
                 <td>
                     <a class="btn btn-primary" asp-controller="Book" asp-action="EditBook"
                        asp-route-id="@book.BookId">Edit</a>
