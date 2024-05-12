@@ -4,42 +4,52 @@
     ViewData["Title"] = "Edit Book";
 }
 
+<h2>Edit book (@Model.Book.Title) below:</h2>
 
+<div class="w-75 mx-auto">
+    <form asp-action="EditBook" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
 
-<form asp-action="EditBook" method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="mb-3">
+            <label asp-for="Book.Title" class="form-label">Title</label>
+            <input asp-for="Book.Title" class="form-control" />
+        </div>
 
-    <div class="mb-3">
-        <label asp-for="Book.Title" class="form-label">Title</label>
-        <input asp-for="Book.Title" class="form-control" />
-    </div>
+        <br />
+        <div class="mb-3">
+            <label asp-for="SelectedAuthorIds" class="form-label">Choose Authors</label>
+            <select name="SelectedAuthorIds" asp-items="@Model.Authors.Select(a => new SelectListItem { Value = a.AuthorId.ToString(), Text = a.AuthorName })" class="form-select form-select-sm" multiple aria-label="Multiple select example">
+            </select>
+        </div>
+        <br />
 
-    <select class="form-select form-select-sm" aria-label="Small select example" asp-for="Book.Authors">
-        <option selected>--Choose an Author--</option>
-        @foreach(var author in Model.Authors)
-        {
-            <option value="@author.AuthorId">@author.AuthorName</option>
-        }
-    </select>
+        <div class="mb-3">
+            <label asp-for="Book.GenreId" class="form-label"></label>
+            <select asp-for="Book.GenreId" class="form-select form-select-sm" aria-label="Small select example">
+                <option>--Choose a Genre--</option>
+                @foreach (var genre in Model.Genres)
+                {
+                    <option value="@genre.GenreId">@genre.Name</option>
+                }
+            </select>
+        </div>
+        <br />
 
-    <select class="form-select form-select-sm" aria-label="Small select example" asp-for="Book.Genre">
-        <option selected>--Choose a Genre</option>
-        @foreach (var genre in Model.Genres)
-        {
-            <option value="@genre.GenreId">@genre.Name</option>
-        }
-    </select>
+        <div class="mb-3">
+            <label asp-for="Book.StatusId" class="form-label"></label>
+            <select asp-for="Book.StatusId" class="form-select form-select-sm" aria-label="Small select example">
+                <option>--Choose a Status--</option>
+                @foreach (var status in Model.Statuses)
+                {
+                    <option value="@status.StatusId">@status.StatusName</option>
+                }
+            </select>
+        </div>
+        <br />
 
-    <select class="form-select form-select-sm" aria-label="Small select example" asp-for="Book.Status">
-        <option selected>--Choose a Status--</option>
-        @foreach (var status in Model.Genres)
-        {
-            <option value="@status.GenreId">@status.Name</option>
-        }
-    </select>
+        <input type="hidden" asp-for="@Model.Book.BookId" />
 
-    <button type="submit" class="btn btn-primary">Delete</button>
-    <a asp-controller="Book" asp-action="Index" class="btn btn-primary">Cancel</a>
-</form>
-
-
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a asp-action="Index" asp-controller="Book" class="btn btn-primary">Cancel</a>
+    </form>
+</div>

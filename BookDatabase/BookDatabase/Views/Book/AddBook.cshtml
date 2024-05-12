@@ -21,9 +21,6 @@
             <select name="SelectedAuthorIds" asp-items="@Model.Authors.Select(a => new SelectListItem { Value = a.AuthorId.ToString(), Text = a.AuthorName })" class="form-select form-select-sm" multiple aria-label="Multiple select example">
             </select>
         </div>
-
-
-
         <br />
 
         <div class="mb-3">
